@@ -1,6 +1,6 @@
 //
 //  NSView+NibLoading.m
-//  Fontstand
+//  Min60
 //
 //  Created by Peter Paulis on 08/09/14.
 //  Copyright (c) 2014 min60 s.r.o. - Peter Paulis. All rights reserved.
@@ -10,7 +10,11 @@
 
 @implementation NSView (NibLoading)
 
-+ (NSView *)loadWithNibNamed:(NSString *)nibNamed owner:(id)owner class:(Class)loadClass {
++ (id)loadWithClass:(Class)loadClass owner:(id)owner {
+    return [NSView loadWithNibNamed:NSStringFromClass(loadClass) class:loadClass owner:owner];
+}
+
++ (id)loadWithNibNamed:(NSString *)nibNamed class:(Class)loadClass owner:(id)owner {
     
     NSNib * nib = [[NSNib alloc] initWithNibNamed:nibNamed bundle:nil];
     
